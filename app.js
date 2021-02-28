@@ -9,10 +9,12 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("/lib/htmlRenderer");
+const { listenerCount } = require("events");
+const { type } = require("os");
 
 const employeeList = [];
 let HTML = "";
-const questionsManager = [
+const managerQuestions = [
     {
         type: "input",
         message: "What is your name? ",
@@ -35,7 +37,7 @@ const questionsManager = [
     }
 ];
 
-const questionsEngineer = [
+const engineerQuestions = [
     {
         type: "input",
         message: "What is your name? ",
@@ -58,7 +60,7 @@ const questionsEngineer = [
     }
 ];
 
-const questionsIntern = [
+const internQuestions = [
     {
         type: "input",
         message: "What is your name? ",
@@ -82,6 +84,31 @@ const questionsIntern = [
 ];
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
+
+const employeeInfo = () => {
+    inquirer.prompt([
+        {
+            type: list,
+            name: type,
+            message: "Employee type?",
+            choices: ["Manager", "Engineer", "Intern"]
+        }
+    ]).then(selection => {
+        switch (selection) {
+            case "Manager":
+                return managerQuestions;
+
+            case "Engineer":
+                return engineerQuestions;
+
+            case "Intern":
+                return internQuestions;
+
+            default:
+                return choices;
+        }
+    })
+}
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
