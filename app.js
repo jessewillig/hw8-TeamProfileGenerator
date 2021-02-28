@@ -96,13 +96,13 @@ const employeeInfo = () => {
     ]).then(selection => {
         switch (selection) {
             case "Manager":
-                return managerQuestions();
+                return managerQs();
 
             case "Engineer":
-                return engineerQuestions();
+                return engineerQs();
 
             case "Intern":
-                return internQuestions();
+                return internQs();
 
             default:
                 return choices;
@@ -127,7 +127,13 @@ const employeeInfo = () => {
         }
 
         function internQs () {
-            
+            inquirer.prompt(internQuestions)
+                .then(selection => {
+                    const employee = new Intern(selection.name, selection.eID, selection.email, selection.school);
+                    employeeList.push(employee);
+                    addEmployee();
+                })
+                .catch(err => console.log(err));
         }
     })
 }
@@ -135,6 +141,18 @@ const employeeInfo = () => {
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
+const addEmployee = () => {
+    inquirer.prompt([
+        {
+            type: "confirm",
+            message: "Add more employees?",
+            name: "addEmployee"
+        }
+    ]).then(response => {
+        
+    })
+}
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
