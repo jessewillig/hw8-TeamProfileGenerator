@@ -150,7 +150,14 @@ const addEmployee = () => {
             name: "addEmployee"
         }
     ]).then(response => {
+        switch (response) {
+            case addEmployee:
+                console.log("Yes");
+                return employeeInfo();
         
+            default:
+                break;
+        }
     })
 }
 
