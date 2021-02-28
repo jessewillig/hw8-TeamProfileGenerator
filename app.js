@@ -33,7 +33,7 @@ const managerQuestions = [
     {
         type: "input",
         message: "Office Number? ",
-        name: "o#"
+        name: "oNum"
     }
 ];
 
@@ -96,16 +96,29 @@ const employeeInfo = () => {
     ]).then(selection => {
         switch (selection) {
             case "Manager":
-                return managerQuestions;
+                return managerQuestions();
 
             case "Engineer":
-                return engineerQuestions;
+                return engineerQuestions();
 
             case "Intern":
-                return internQuestions;
+                return internQuestions();
 
             default:
                 return choices;
+        }
+
+        function managerQs() {
+            inquirer.prompt(managerQuestions)
+                .then(selection => {
+                    const employee = new Manager(selection.name, selections.id, selection.email, selection.oNum);
+                    employeeList.push(employee);
+                    addEmployee();
+                })
+        }
+
+        function engineerQs() {
+            
         }
     })
 }
