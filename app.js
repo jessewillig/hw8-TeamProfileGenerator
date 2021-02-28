@@ -108,16 +108,25 @@ const employeeInfo = () => {
                 return choices;
         }
 
-        function managerQs() {
+        function managerQs () {
             inquirer.prompt(managerQuestions)
                 .then(selection => {
-                    const employee = new Manager(selection.name, selections.id, selection.email, selection.oNum);
+                    const employee = new Manager(selection.name, selections.eID, selection.email, selection.oNum);
                     employeeList.push(employee);
                     addEmployee();
                 })
         }
 
-        function engineerQs() {
+        function engineerQs () {
+            inquirer.prompt(engineerQuestions)
+                .then(selection => {
+                    const employee = new Engineer(selection.name, selection.eID, selection.email, selection.github);
+                    employeeList.push(employee);
+                    addEmployee();
+                })
+        }
+
+        function internQs () {
             
         }
     })
