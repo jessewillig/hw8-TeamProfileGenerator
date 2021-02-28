@@ -9,8 +9,6 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("/lib/htmlRenderer");
-const { listenerCount } = require("events");
-const { type } = require("os");
 
 const employeeList = [];
 let HTML = "";
