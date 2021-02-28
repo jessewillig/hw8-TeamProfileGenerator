@@ -87,7 +87,7 @@ const employeeInfo = () => {
     inquirer.prompt([
         {
             type: list,
-            name: type,
+            name: role,
             message: "What is your role?",
             choices: ["Manager", "Engineer", "Intern"]
         }
