@@ -156,10 +156,15 @@ const addEmployee = () => {
                 return employeeInfo();
         
             default:
-                break;
+                HTML += render(employeeList);
+                fs.writeFile(outputPath, HTML, err => console.log(err));
+                console.log("Complete");
+                return;
         }
     })
 }
+
+employeeInfo();
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
