@@ -88,11 +88,11 @@ const employeeInfo = () => {
         {
             type: list,
             name: type,
-            message: "Employee type?",
+            message: "What is your role?",
             choices: ["Manager", "Engineer", "Intern"]
         }
     ]).then(selection => {
-        switch (selection) {
+        switch (selection.type) {
             case "Manager":
                 return managerQs();
 
