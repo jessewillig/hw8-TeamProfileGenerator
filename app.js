@@ -103,7 +103,7 @@ const employeeInfo = () => {
         function managerQs () {
             inquirer.prompt(managerQuestions)
                 .then(selection => {
-                    const employee = new Manager(selection.name, selections.eID, selection.email, selection.oNum);
+                    const employee = new Manager(selection.role, selection.eID, selection.email, selection.oNum);
                     employeeList.push(employee);
                     addEmployee();
                 })
@@ -112,7 +112,7 @@ const employeeInfo = () => {
         function engineerQs () {
             inquirer.prompt(engineerQuestions)
                 .then(selection => {
-                    const employee = new Engineer(selection.name, selection.eID, selection.email, selection.github);
+                    const employee = new Engineer(selection.role, selection.eID, selection.email, selection.github);
                     employeeList.push(employee);
                     addEmployee();
                 })
@@ -121,7 +121,7 @@ const employeeInfo = () => {
         function internQs () {
             inquirer.prompt(internQuestions)
                 .then(selection => {
-                    const employee = new Intern(selection.name, selection.eID, selection.email, selection.school);
+                    const employee = new Intern(selection.role, selection.eID, selection.email, selection.school);
                     employeeList.push(employee);
                     addEmployee();
                 })
