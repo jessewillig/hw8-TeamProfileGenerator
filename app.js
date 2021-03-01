@@ -33,7 +33,7 @@ const managerQuestions = [
         message: "Office Number? ",
         name: "oNum"
     }
-];
+]
 
 const engineerQuestions = [
     {
@@ -56,7 +56,7 @@ const engineerQuestions = [
         message: "GitHub Username? ",
         name: "github"
     }
-];
+]
 
 const internQuestions = [
     {
@@ -79,7 +79,7 @@ const internQuestions = [
         message: "Internee School? ",
         name: "school"
     }
-];
+]
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
