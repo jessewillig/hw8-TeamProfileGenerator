@@ -86,24 +86,18 @@ const internQuestions = [
 const employeeInfo = () => {
     inquirer.prompt([
         {
-            type: list,
-            name: role,
+            type: "list",
+            name: "role",
             message: "What is your role?",
             choices: ["Manager", "Engineer", "Intern"]
         }
     ]).then(selection => {
-        switch (selection.type) {
-            case "Manager":
-                return managerQs();
-
-            case "Engineer":
-                return engineerQs();
-
-            case "Intern":
-                return internQs();
-
-            default:
-                return choices;
+        if (selection.role === "Manager") {
+            managerQs();
+        } else if (selection.role === "Engineer") {
+            engineerQs();
+        } else {
+            internQs();
         }
 
         function managerQs () {
@@ -148,16 +142,14 @@ const addEmployee = () => {
             name: "addEmployee"
         }
     ]).then(response => {
-        switch (response) {
-            case addEmployee:
-                console.log("Yes");
-                return employeeInfo();
-        
-            default:
-                HTML += render(employeeList);
-                fs.writeFile(outputPath, HTML, err => console.log(err));
-                console.log("Complete");
-                return;
+        if (response.addEmployee === true) {
+            console.log("Yes");
+            employeeInfo();
+        } else {
+            HTML += render(employeeList);
+            fs.writeFile(outputPath, HTML, err => console.log(err))
+            console.log("Complete");
+            return;
         }
     })
 }
