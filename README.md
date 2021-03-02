@@ -2,6 +2,8 @@
 
 This application was designed to take in employee information and generate an HTML webpage that displays summaries for each employee so that the employer can easily track department employees.
 
+![TeamProfileGenerator](./assets/teamProfileApp.png)
+
 ## Built With
 
 * [Inquirer](https://www.npmjs.com/package/inquirer#questions) - NPM download
