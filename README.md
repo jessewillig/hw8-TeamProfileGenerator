@@ -1,4 +1,4 @@
-# hw9-TeamProfileGenerator
+# teamProfileGenerator
 
 This application was designed to take in employee information and generate an HTML webpage that displays summaries for each employee so that the employer can easily track department employees.
 
